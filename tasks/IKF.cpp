@@ -373,6 +373,12 @@ void IKF::initialAlignment(const base::Time &ts,  const base::samples::IMUSensor
 
             if ((base::isnotnan(initial_alignment.acc)) && (base::isnotnan(initial_alignment.gyro)))
             {
+                /** Use inclinometers stored in the magnetometers **/
+                if (config.use_inclinometers && base::isnotnan(initial_alignment.mag))
+                {
+                    initial_alignment.acc = initial_alignment.mag;
+                }
+
                 if (initial_alignment.acc.norm() < (GRAVITY+GRAVITY_MARGIN) && initial_alignment.acc.norm() > (GRAVITY-GRAVITY_MARGIN))
                 {
                     /** Override the gravity model value with the sensed from the sensors **/
@@ -380,6 +386,10 @@ void IKF::initialAlignment(const base::Time &ts,  const base::samples::IMUSensor
                         ikf_filter.setGravity(initial_alignment.acc.norm());
 
                     /** Compute the local horizontal plane **/
+                    //euler[0] = (double) asin((double)initial_alignment.acc[1]/ (double)initial_alignment.acc.norm()); // Roll
+                    //euler[1] = (double) -atan(initial_alignment.acc[0]/initial_alignment.acc[2]); //Pitch
+                    //euler[2] = 0.00; //Yaw
+
                     Eigen::Quaterniond rot = Eigen::Quaterniond::FromTwoVectors(Eigen::Vector3d::UnitZ(), initial_alignment.acc);
                     base::Vector3d euler = base::getEuler(rot);
                     euler.z() = 0.0;
@@ -440,7 +450,7 @@ void IKF::initialAlignment(const base::Time &ts,  const base::samples::IMUSensor
                     }
 
                     /** Set the attitude  **/
-                    initial_attitude = Eigen::Quaterniond(Eigen::AngleAxisd(euler[0], Eigen::Vector3d::UnitZ()) *
+                    initial_attitude = Eigen::Quaterniond(Eigen::AngleAxisd(euler[0]+M_PI, Eigen::Vector3d::UnitZ()) *
                                     Eigen::AngleAxisd(euler[1], Eigen::Vector3d::UnitY()) *
                                     Eigen::AngleAxisd(euler[2], Eigen::Vector3d::UnitX()));
 
