@@ -262,6 +262,122 @@ inclinometer_noise:
     - 0.002
     - 0.002
 
+--- name:stim300_5g_only_random_walk
+# General configuration values to run the task
+filter_configuration:
+  source_frame_name: 'imu'
+  target_frame_name: 'world_osg'
+  use_samples_as_theoretical_gravity: true
+  use_inclinometers: true
+  use_magnetometers: false
+  initial_alignment_duration: 4.5
+  correction_frequency: 1.0
+  substract_earth_rotation: true
+  fog_type: :SINGLE_AXIS
+  initial_heading_source: :ESTIMATE_FROM_EARTH_ROTATION
+
+# Time in s between imu_samples readings
+imu_samples_period: 0.008
+
+# Adaptive estimation of external acceleration.
+adaptive_config_acc:
+  M1: 5
+  M2: 5
+  gamma: 0.001
+
+# Adaptive estimation of external inclinometers.
+adaptive_config_inc:
+  M1: 10
+  M2: 2
+  gamma: 0.003
+
+# Accelerometers Sensors property.
+accelerometer_noise:
+  bandwidth: 33.0 #Hertz
+  biasoffset:
+    data:
+    - 0.0
+    - 0.0
+    - 0.0
+  randomwalk:
+    data:
+    - 0.0005420144
+    - 0.0005131682
+    - 0.0004908665
+  raterandomwalk:
+    data:
+    - 0.0
+    - 0.0
+    - 0.0
+  biasinstability:
+    data:
+    - 0.0
+    - 0.0
+    - 0.0
+  resolution:
+    data:
+    - 0.0024525 #0.25mg
+    - 0.0024525 #0.25mg
+    - 0.0024525 #0.25mg
+
+# Gyroscopes Sensors property.
+gyroscope_noise:
+  bandwidth: 33.0 #Hertz
+  biasoffset:
+    data:
+    - 0.0
+    - 0.0
+    - 0.0
+  randomwalk:
+    data:
+    - 3.320343e-05
+    - 4.455001e-05
+    - 4.060973e-05
+  raterandomwalk:
+    data:
+    - 0.0
+    - 0.0
+    - 0.0
+  biasinstability:
+    data:
+    - 0.0
+    - 0.0
+    - 0.0
+  resolution:
+    data:
+    - 0.0
+    - 0.0
+    - 0.0
+
+# Inclinometers Sensors property.
+inclinometer_noise:
+  bandwidth: 16.0 #Hertz
+  biasoffset:
+    data:
+    - 0.0
+    - 0.0
+    - 0.0
+  randomwalk:
+    data:
+    - 0.005019287
+    - 0.005019287
+    - 0.005019287
+  raterandomwalk:
+    data:
+    - 0.0
+    - 0.0
+    - 0.0
+  biasinstability:
+    data:
+    - 0.0
+    - 0.0
+    - 0.0
+  resolution:
+    data:
+    - 0.002
+    - 0.002
+    - 0.002
+
 --- name:virtual_imu
 # General configuration values to run the task
 filter_configuration:
@@ -301,9 +417,9 @@ accelerometer_noise:
     - 0.0
   randomwalk:
     data:
-    - 0.01
-    - 0.01
-    - 0.01
+    - 0.001
+    - 0.001
+    - 0.001
   raterandomwalk:
     data:
     - 0.0
@@ -311,9 +427,9 @@ accelerometer_noise:
     - 0.0
   biasinstability:
     data:
-    - 0.001
-    - 0.001
-    - 0.001
+    - 0.000001
+    - 0.000001
+    - 0.000001
   resolution:
     data:
     - 0.0024525 #0.25mg
@@ -330,9 +446,9 @@ gyroscope_noise:
     - 0.0
   randomwalk:
     data:
-    - 0.01
-    - 0.01
-    - 0.01
+    - 0.001
+    - 0.001
+    - 0.001
   raterandomwalk:
     data:
     - 0.0
@@ -340,9 +456,9 @@ gyroscope_noise:
     - 0.0
   biasinstability:
     data:
-    - 0.001
-    - 0.001
-    - 0.001
+    - 0.000001
+    - 0.000001
+    - 0.000001
   resolution:
     data:
     - 0.0
@@ -359,9 +475,9 @@ inclinometer_noise:
     - 0.0
   randomwalk:
     data:
-    - 0.01
-    - 0.01
-    - 0.01
+    - 0.001
+    - 0.001
+    - 0.001
   raterandomwalk:
     data:
     - 0.0
@@ -369,9 +485,9 @@ inclinometer_noise:
     - 0.0
   biasinstability:
     data:
-    - 0.001
-    - 0.001
-    - 0.001
+    - 0.000001
+    - 0.000001
+    - 0.000001
   resolution:
     data:
     - 0.002
