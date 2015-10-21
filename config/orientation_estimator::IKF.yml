@@ -198,7 +198,7 @@ accelerometer_noise:
     - 0.0004368486
     - 0.0003441604
     - 0.0003097561
-  resolution:
+  resolution: # It helps in the definition of M1 M2 and gamma. It can be zero if the optimal M1 M2 and gamma are found
     data:
     - 0.0024525 #0.25mg
     - 0.0024525 #0.25mg
@@ -256,7 +256,7 @@ inclinometer_noise:
     - 0.008292219
     - 0.008160451
     - 0.00846485
-  resolution:
+  resolution: # It helps in the definition of M1 M2 and gamma. It can be zero if the optimal M1 M2 and gamma are found
     data:
     - 0.002
     - 0.002
