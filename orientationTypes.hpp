@@ -73,6 +73,7 @@ namespace orientation_estimator
         base::Vector3d randomwalk;//velocity/ random walk for accelerometers (m/s/sqrt(s))
         base::Vector3d raterandomwalk;//acceleration random walk for accelerometers (m/s^2/sqrt(s))
         base::Vector3d biasinstability;//accelerometers bias instability (m/s^2)
+        base::Vector3d correlationtime;// correlation time for the bias instability
         base::Vector3d resolution;//minimum accelerometers resolution (m/s^2)
     };
 
