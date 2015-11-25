@@ -197,9 +197,9 @@ bool IKF::configureHook()
 
     /** Accelerometers measurement covariance **/
     Ra = Eigen::Matrix3d::Zero();
-    Ra(0,0) = accnoise.resolution[0] + pow(accnoise.randomwalk[0]/sqrtdelta_t,2);
-    Ra(1,1) = accnoise.resolution[1] + pow(accnoise.randomwalk[1]/sqrtdelta_t,2);
-    Ra(2,2) = accnoise.resolution[2] + pow(accnoise.randomwalk[2]/sqrtdelta_t,2);
+    Ra(0,0) =  pow(accnoise.randomwalk[0]/sqrtdelta_t,2);
+    Ra(1,1) =  pow(accnoise.randomwalk[1]/sqrtdelta_t,2);
+    Ra(2,2) =  pow(accnoise.randomwalk[2]/sqrtdelta_t,2);
 
     /** Noise for error in accelerometers random walk **/
     Qka.setZero();
@@ -217,9 +217,9 @@ bool IKF::configureHook()
 
     /** Noise for error in gyros bias instability **/
     Qbg.setZero();
-    Qbg(0,0) = pow(sqrt(2*(1.0/gyronoise.correlationtime[0])) * gyronoise.biasinstability[0] * 0.664,2);
-    Qbg(1,1) = pow(sqrt(2*(1.0/gyronoise.correlationtime[1])) * gyronoise.biasinstability[1] * 0.664,2);
-    Qbg(2,2) = pow(sqrt(2*(1.0/gyronoise.correlationtime[2])) * gyronoise.biasinstability[2] * 0.664,2);
+    Qbg(0,0) = pow(sqrt(2*(1.0/gyronoise.correlationtime[0])) * gyronoise.biasinstability[0] /* 0.664*/,2);
+    Qbg(1,1) = pow(sqrt(2*(1.0/gyronoise.correlationtime[1])) * gyronoise.biasinstability[1] /* 0.664*/,2);
+    Qbg(2,2) = pow(sqrt(2*(1.0/gyronoise.correlationtime[2])) * gyronoise.biasinstability[2] /* 0.664*/,2);
 
     /** Noise for error in gyros rate random walk **/
     Qkg.setZero();
@@ -234,9 +234,9 @@ bool IKF::configureHook()
         sqrtdelta_t = sqrt(1.0/config.correction_frequency); /** Noise depends on frequency bandwidth **/
 
     Ri = Eigen::Matrix3d::Zero();
-    Ri(0,0) = incnoise.resolution[0] + pow(incnoise.randomwalk[0]/sqrtdelta_t,2);
-    Ri(1,1) = incnoise.resolution[1] + pow(incnoise.randomwalk[1]/sqrtdelta_t,2);
-    Ri(2,2) = incnoise.resolution[2] + pow(incnoise.randomwalk[2]/sqrtdelta_t,2);
+    Ri(0,0) = pow(incnoise.randomwalk[0]/sqrtdelta_t,2);
+    Ri(1,1) = pow(incnoise.randomwalk[1]/sqrtdelta_t,2);
+    Ri(2,2) = pow(incnoise.randomwalk[2]/sqrtdelta_t,2);
 
     /** Noise for error in inclinometers random walk **/
     Qki.setZero();
