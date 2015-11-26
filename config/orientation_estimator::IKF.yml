@@ -167,13 +167,13 @@ imu_samples_period: 0.008
 adaptive_config_acc:
   M1: 5
   M2: 5
-  gamma: 0.0005
+  gamma: 0.001
 
 # Adaptive estimation of external inclinometers.
 adaptive_config_inc:
   M1: 10
   M2: 2
-  gamma: 0.001
+  gamma: 0.003
 
 # Accelerometers Sensors property.
 accelerometer_noise:
@@ -205,9 +205,9 @@ accelerometer_noise:
     - 262.1408
   resolution: # It helps in the definition of M1 M2 and gamma. It can be zero if the optimal M1 M2 and gamma are found
     data:
-    - 0.00
-    - 0.00
-    - 0.00
+    - 0.0024525
+    - 0.0024525
+    - 0.0024525
 
 # Gyroscopes Sensors property.
 gyroscope_noise:
@@ -273,9 +273,9 @@ inclinometer_noise:
     - 32.7676
   resolution: # It helps in the definition of M1 M2 and gamma. It can be zero if the optimal M1 M2 and gamma are found
     data:
-    - 0.00
-    - 0.00
-    - 0.00
+    - 0.002
+    - 0.002
+    - 0.002
 
 --- name:stim300_5g_only_random_walk
 # General configuration values to run the task
@@ -365,9 +365,9 @@ gyroscope_noise:
     - 0.0
   correlationtime:
     data:
-    - 0.00
-    - 0.00
-    - 0.00
+    - 1.0
+    - 1.0
+    - 1.0
   resolution:
     data:
     - 0.0
@@ -452,14 +452,19 @@ accelerometer_noise:
     - 0.001
   raterandomwalk:
     data:
-    - 0.0
-    - 0.0
-    - 0.0
+    - 0.000001
+    - 0.000001
+    - 0.000001
   biasinstability:
     data:
     - 0.000001
     - 0.000001
     - 0.000001
+  correlationtime:
+    data:
+    - 131.0704
+    - 524.2816
+    - 262.1408
   resolution:
     data:
     - 0.0024525 #0.25mg
@@ -481,14 +486,19 @@ gyroscope_noise:
     - 0.001
   raterandomwalk:
     data:
-    - 0.0
-    - 0.0
-    - 0.0
+    - 0.000001
+    - 0.000001
+    - 0.000001
   biasinstability:
     data:
     - 0.000001
     - 0.000001
     - 0.000001
+  correlationtime:
+    data:
+    - 131.0704
+    - 131.0704
+    - 65.5352
   resolution:
     data:
     - 0.0
@@ -510,14 +520,19 @@ inclinometer_noise:
     - 0.001
   raterandomwalk:
     data:
-    - 0.0
-    - 0.0
-    - 0.0
+    - 0.000001
+    - 0.000001
+    - 0.000001
   biasinstability:
     data:
     - 0.000001
     - 0.000001
     - 0.000001
+  correlationtime:
+    data:
+    - 32.7676
+    - 32.7676
+    - 32.7676
   resolution:
     data:
     - 0.002
