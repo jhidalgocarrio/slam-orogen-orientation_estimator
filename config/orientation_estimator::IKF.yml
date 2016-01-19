@@ -462,9 +462,9 @@ accelerometer_noise:
     - 0.000001
   correlationtime:
     data:
-    - 131.0704
-    - 524.2816
-    - 262.1408
+    - 1
+    - 1
+    - 1
   resolution:
     data:
     - 0.0024525 #0.25mg
@@ -496,9 +496,9 @@ gyroscope_noise:
     - 0.000001
   correlationtime:
     data:
-    - 131.0704
-    - 131.0704
-    - 65.5352
+    - 1
+    - 1
+    - 1
   resolution:
     data:
     - 0.0
@@ -530,9 +530,9 @@ inclinometer_noise:
     - 0.000001
   correlationtime:
     data:
-    - 32.7676
-    - 32.7676
-    - 32.7676
+    - 1
+    - 1
+    - 1
   resolution:
     data:
     - 0.002

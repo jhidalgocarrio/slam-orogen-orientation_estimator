@@ -20,9 +20,9 @@ Orocos::Process.run 'orientation_estimator::IKF' => 'ikf_orientation_estimator' 
     Orocos.conf.load_dir('./config')
     ikf_attitude_task = TaskContext.get 'ikf_orientation_estimator'
    # Orocos.conf.apply(ikf_attitude_task, ['default', 'Bremen', 'stim300_10g'], :override => true)
-     Orocos.conf.apply(ikf_attitude_task, ['default', 'DLR-Oberpfaffenhofen', 'stim300_5g'], :override => true)
-   #  Orocos.conf.apply(ikf_attitude_task, ['default', 'DLR-Oberpfaffenhofen', 'stim300_5g_only_random_walk'], :override => true)
-   # Orocos.conf.apply(ikf_attitude_task, ['default', 'DLR-Oberpfaffenhofen', 'virtual_imu'], :override => true)
+   # Orocos.conf.apply(ikf_attitude_task, ['default', 'DLR-Oberpfaffenhofen', 'stim300_5g'], :override => true)
+   # Orocos.conf.apply(ikf_attitude_task, ['default', 'DLR-Oberpfaffenhofen', 'stim300_5g_only_random_walk'], :override => true)
+    Orocos.conf.apply(ikf_attitude_task, ['default', 'DLR-Oberpfaffenhofen', 'virtual_imu'], :override => true)
 
     # connect the tasks to the logs
     log_replay = Orocos::Log::Replay.open( ARGV[0] )
