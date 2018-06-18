@@ -22,7 +22,7 @@
 
 #include "UKFEstimator.hpp"
 #include "BaseEstimator.hpp"
-#include <base/angle.h>
+#include <base/Angle.hpp>
 
 using base::Angle;
 using namespace orientation_estimator;
